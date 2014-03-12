@@ -3,11 +3,44 @@
 </head>
 
 <body>
-  {{> hello}}
+	<div class="containers">
+		{{> TodosPanel}}
+	</div>
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="TodosPanel">
+  <div class="todos-panel">
+  	{{> CreateTodoItem}}
+  	<ul class="todos-list">
+			{{#each items}}
+				<li class="todo-item {{isDoneClass}}">
+					{{> TodoItem}}
+				</li>
+			{{/each}}
+		</ul>
+
+		{{> TodosCount}}
+	</div>
+</template>
+
+<template name="TodoItem">
+	<div class="done">
+		<input type="checkbox" name="is_done" {{isDoneChecked}} />
+	</div>
+	
+	<div class="subject">
+		{{subject}}
+	</div>
+</template>
+
+<template name="CreateTodoItem">
+	<form class="create-todo">
+		<input type="text" placeholder="Create new list item..."/>
+	</form>
+</template>
+
+<template name="TodosCount">
+	<div class="todos-count">
+		{{completedCount}} / {{totalCount}} completed
+	</div>
 </template>
