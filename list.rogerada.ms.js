@@ -65,6 +65,12 @@ if (Meteor.isClient) {
 
     totalCount: function() {
       return Todos.find({}).count();
+    },
+
+    percentageComplete: function() {
+      var completed = Todos.find({is_done: true}).count();
+      var total = Todos.find({}).count();
+      return (completed / total) * 100;
     }
   });
 }

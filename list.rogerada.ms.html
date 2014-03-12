@@ -4,13 +4,33 @@
 
 <body>
 	<div class="container">
-		<div class="login">
+		<div class="login pull-right">
 			{{loginButtons}}
 		</div>
+		{{> NavBar}}
 
 		{{> TodosPanel}}
 	</div>
 </body>
+
+<template name="NavBar">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#">list.RogerAda.ms</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">Todos</a>
+						</li>
+						<li><a href="#">Archive</a></li>
+						<li><a href="#">Settings</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
 
 <template name="TodosPanel">
   <div class="todos-panel">
@@ -54,6 +74,9 @@
 
 <template name="TodosCount">
 	<div class="todos-count">
+		<div class="progress progress-info" style="margin-bottom: 9px;">
+    	<div class="bar" style="width: {{percentageComplete}}%"></div>
+		</div>
 		{{completedCount}} / {{totalCount}} completed
 	</div>
 </template>
