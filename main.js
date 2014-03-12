@@ -1,5 +1,3 @@
-Todos = new Meteor.Collection('todos');
-
 if (Meteor.isClient) {
   // subscriptions
   Meteor.subscribe('todos');

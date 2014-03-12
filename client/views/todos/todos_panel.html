@@ -1,0 +1,18 @@
+<template name="TodosPanel">
+  <div class="todos-panel">
+  	{{> CreateTodoItem}}
+  	<ul class="todos-list">
+			{{#each items}}
+				<li class="todo-item {{isDoneClass}}">
+					{{> TodoItem}}
+				</li>
+			{{else}}
+				<li class="todo-item empty">
+					You don't have anything to do!
+				</li>
+			{{/each}}
+		</ul>
+
+		{{> TodosCount}}
+	</div>
+</template>
